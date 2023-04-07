@@ -57,10 +57,10 @@ sh 'sudo scp -o StrictHostKeyChecking=no -i ./terraform_files/DEMOKEY.pem medicu
 sh 'sudo scp -o StrictHostKeyChecking=no -i ./terraform_files/DEMOKEY.pem medicure-service.yml ubuntu@54.87.119.199:/home/ubuntu/'
 script{
 try{
-sh 'ssh -i StrictHostKeyChecking=no ./terraform_files/DEMOKEY.pem ubuntu@54.87.119.199 kubectl apply -f .'
+sh 'ssh -i ./terraform_files/DEMOKEY.pem  StrictHostKeyChecking=no ubuntu@54.87.119.199 kubectl apply -f .'
 }catch(error)
 {
-sh 'ssh -i StrictHostKeyChecking=no ./terraform_files/DEMOKEY.pem ubuntu@54.87.119.199 kubectl apply -f .'
+sh 'ssh -i ./terraform_files/DEMOKEY.pem  StrictHostKeyChecking=no ubuntu@54.87.119.199 kubectl apply -f .'
 }
 }
 }
