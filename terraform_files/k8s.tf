@@ -14,6 +14,19 @@ resource "aws_instance" "k8s-server" {
    tags = {
         name = "k8s-server"
     }
+ 
+ # Define Elastic IP resource
+resource "aws_eip" "eip" {
+  vpc      = true
+  depends_on = [aws_instance.ec2_instance]
+}
+
+# Associate Elastic IP with EC2 instance
+resource "aws_eip_association" "eip_assoc" {
+  instance_id   = aws_instance.k8s-server.id
+  allocation_id = aws_eip.eip.id
+}
+ 
  provisioner "remote-exec" {
  inline = [
  "sudo apt-get update -y",
