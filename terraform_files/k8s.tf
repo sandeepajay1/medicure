@@ -6,7 +6,7 @@ resource "aws_instance" "k8s-server" {
  instance_type = "t2.medium"
  vpc_security_group_ids = ["sg-09947aa36d4d8ebb2"]
  subnet_id = "subnet-05a31b67b18113593"
- key_name = "DEMOKEY"
+ key_name = "Udemy"
    root_block_device {
       volume_size = 20
       volume_type = "gp2"
