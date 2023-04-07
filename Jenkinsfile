@@ -53,14 +53,14 @@ stage('Docker login and push') {
 stage('deploy application to kubernetes'){
 steps{
 sh 'sudo chmod 600 ./terraform_files/DEMOKEY.pem'    
-sh 'sudo scp -o StrictHostKeyChecking=no -i ./terraform_files/DEMOKEY.pem medicure-deployment.yml ubuntu@44.210.209.130:/home/ubuntu/'
-sh 'sudo scp -o StrictHostKeyChecking=no -i ./terraform_files/DEMOKEY.pem medicure-service.yml ubuntu@44.210.209.130:/home/ubuntu/'
+sh 'sudo scp -o StrictHostKeyChecking=no -i ./terraform_files/DEMOKEY.pem medicure-deployment.yml ubuntu@54.87.119.199:/home/ubuntu/'
+sh 'sudo scp -o StrictHostKeyChecking=no -i ./terraform_files/DEMOKEY.pem medicure-service.yml ubuntu@54.87.119.199:/home/ubuntu/'
 script{
 try{
-sh 'ssh -i ./terraform_files/DEMOKEY.pem ubuntu@44.210.209.130 kubectl apply -f .'
+sh 'ssh -i ./terraform_files/DEMOKEY.pem ubuntu@54.87.119.199 kubectl apply -f .'
 }catch(error)
 {
-sh 'ssh -i ./terraform_files/DEMOKEY.pem ubuntu@44.210.209.130 kubectl apply -f .'
+sh 'ssh -i ./terraform_files/DEMOKEY.pem ubuntu@54.87.119.199 kubectl apply -f .'
 }
 }
 }
