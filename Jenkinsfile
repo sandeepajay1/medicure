@@ -55,6 +55,7 @@ steps{
 sh 'sudo chmod 600 ./terraform_files/DEMOKEY.pem'    
 sh 'sudo scp -o StrictHostKeyChecking=no -i ./terraform_files/DEMOKEY.pem medicure-deployment.yml ubuntu@54.87.119.199:/home/ubuntu/'
 sh 'sudo scp -o StrictHostKeyChecking=no -i ./terraform_files/DEMOKEY.pem medicure-service.yml ubuntu@54.87.119.199:/home/ubuntu/'
+sh 'ssh -i ./terraform_files/DEMOKEY.pem  ubuntu@54.87.119.199 minikube start'
 script{
 try{
 sh 'ssh -i ./terraform_files/DEMOKEY.pem  ubuntu@54.87.119.199 kubectl apply -f .'
