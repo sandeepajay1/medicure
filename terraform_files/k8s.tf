@@ -5,7 +5,7 @@ provider "aws" {
 resource "aws_instance" "k8s-server" {
   ami                    = "ami-007855ac798b5175e"
   instance_type          = "t2.medium"
-  vpc_security_group_ids = ["sg-09947aa36d4d8ebb2"]
+  vpc_security_group_ids = ["sg-06f3f0c7feabff638"]
   subnet_id              = "subnet-05a31b67b18113593"
   key_name               = "Udemy"
 
